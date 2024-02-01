@@ -7,21 +7,22 @@ export function createPlayer(k) {
     k.health(10),
     k.anchor("center"),
     z(3),
-
   ]);
 
   const sword = player.add([
     k.sprite("master-sword"),
     k.rotate(0),
     k.anchor("bot"),
-    k.scale(3),
+    k.scale(2.5),
     k.area(),
     "sword",
     z(3),
-
   ]);
 
   player.onUpdate(() => {
+  //   onKeyDown("space", () => {
+  //   sword.angle += 10 * k.dt();
+  // });
     sword.angle += 200 * k.dt();
   });
 
@@ -49,7 +50,6 @@ export function createWalls(k) {
     k.area(),
     k.body({ isStatic: true }),
     z(3),
-
   ]);
 
   return { topWall, bottomWall };
@@ -69,14 +69,9 @@ export function spawnEnemy(k, player, topWall, bottomWall) {
     k.body(),
     k.area(scale(0.5)),
     k.rotate(0),
-    k.health(10),
+    k.health(2),
     "enemy",
     z(3),
-
-    // k.area({
-    //     scale: 0.5,
-    //     collisionIgnore: 'enemy',
-    // }),
   ]);
 
   // TODO: somehow change enemy movement to not run on every frame

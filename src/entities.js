@@ -6,6 +6,8 @@ export function createPlayer(k) {
     k.body(),
     k.health(10),
     k.anchor("center"),
+    z(3),
+
   ]);
 
   const sword = player.add([
@@ -15,6 +17,8 @@ export function createPlayer(k) {
     k.scale(3),
     k.area(),
     "sword",
+    z(3),
+
   ]);
 
   player.onUpdate(() => {
@@ -34,6 +38,8 @@ export function createWalls(k) {
     k.area(),
     k.body({ isStatic: true }),
     "wall",
+    z(3),
+    
   ]);
 
   const bottomWall = k.add([
@@ -42,6 +48,8 @@ export function createWalls(k) {
     k.outline(4),
     k.area(),
     k.body({ isStatic: true }),
+    z(3),
+
   ]);
 
   return { topWall, bottomWall };
@@ -63,6 +71,8 @@ export function spawnEnemy(k, player, topWall, bottomWall) {
     k.rotate(0),
     k.health(10),
     "enemy",
+    z(3),
+
     // k.area({
     //     scale: 0.5,
     //     collisionIgnore: 'enemy',
